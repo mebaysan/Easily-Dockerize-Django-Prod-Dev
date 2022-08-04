@@ -30,4 +30,4 @@ To set-up Nginx, we use [Dockerfile](./nginx/Dockerfile) which is located under 
 
 # Core Django Settings
 
-I seperate the prod and dev environments. [config_prod.py](./settings/config_prod.py) file is being used for prod environments and [config_prod.py](./settings/config_dev.py) for dev environments. We need to implement the lines in [settings.py](./settings/settings.py) file to use these seperated environments.- [Introduction](#introduction)
+I seperate the prod and dev environments. [config_prod.py](./settings/config_prod.py) file is being used for prod environments and [config_prod.py](./settings/config_dev.py) for dev environments. We need to implement the lines in [settings.py](./settings/settings.py) file to use these seperated environments.
