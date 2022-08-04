@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+
+  webservice:
+    container_name: baysan_web
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    environment:
+      - SECRET_KEY=verysecretKey
+      - DEBUG=False
+      - DB_NAME=postgres
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=secretpassword
+    command: make runproxyversion
+    networks:
+      - nginx_network
+      - pg_network
+    volumes:
+      - static_volume:/app/static
+
+  database:
+    container_name: baysan_database
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=secretpassword
+    volumes:
+      - database_volume:/var/lib/postgresql/data
+    networks:
+      - pg_network
+
+  nginx:
+    container_name: baysan_nginx
+    # location of the dockerfile that defines the nginx image. The dockerfile will be used to spin up an image during the build stage.
+    build: ./nginx
+    # map the machine port 1339 to the container port 80. Any traffic from 1339 externally will be passed to port 80 of the NGINX container. You can access this container viea localhost:1339
+    ports:
+      - "80:80"
+    # static storages provisioned since django does not handle static files in production
+    volumes:
+      - static_volume:/app/static
+
+    # will only start if web is up and running
+    depends_on:
+      - webservice
+    # restart service when it fails
+    restart: "on-failure"
+    networks:
+      - nginx_network
+networks:
+  nginx_network:
+    driver: bridge
+  pg_network:
+    driver: bridge
+
+volumes:
+  database_volume:
+  static_volume:
