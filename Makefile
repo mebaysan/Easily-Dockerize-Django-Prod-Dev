@@ -67,7 +67,7 @@ run_gunicorn:
 	@gunicorn {{project_name}}.wsgi -b 0.0.0.0:8000
 
 collect:
-	@python manage.py collectstatic
+	@python manage.py collectstatic --no-input
 
 superuser:
 	@python manage.py createsuperuser
@@ -83,7 +83,6 @@ wait:
 	@sleep 3
 
 runproxyversion:
-	@python manage.py collectstatic
+	@make collect
 	@make migration
-	@make loaddata
 	@gunicorn {{project_name}}.wsgi:application --bind 0.0.0.0:8000
