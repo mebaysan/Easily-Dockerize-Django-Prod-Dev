@@ -6,6 +6,7 @@
 - [Nginx Dockerfile](#nginx-dockerfile)
 - [Docker Compose](#docker-compose)
 - [Core Django Settings](#core-django-settings)
+- [Default Credentials for Django Admin](#default-credentials-for-django-admin)
 
 # Introduction
 
@@ -31,3 +32,10 @@ To set-up Nginx, we use [Dockerfile](./nginx/Dockerfile) which is located under 
 # Core Django Settings
 
 I seperate the prod and dev environments. [config_prod.py](./settings/config_prod.py) file is being used for prod environments and [config_prod.py](./settings/config_dev.py) for dev environments. We need to implement the lines in [settings.py](./settings/settings.py) file to use these seperated environments.
+
+# Default Credentials for Django Admin
+
+```
+username: admin
+password: Passw0rd!.
+```

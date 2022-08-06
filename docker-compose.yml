@@ -11,12 +11,13 @@ services:
       - database
     environment:
       - SECRET_KEY=verysecretKey
-      - DEBUG=False
+      - DEBUG=0
       - DB_NAME=postgres
       - DB_HOST=database
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=secretpassword
+      - ALLOWED_HOSTS=127.0.0.1
     command: make runproxyversion
     networks:
       - nginx_network
