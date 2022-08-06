@@ -5,8 +5,6 @@ services:
   webservice:
     container_name: baysan_web
     build: .
-    ports:
-      - "8000:8000"
     depends_on:
       - database
     environment:
@@ -29,8 +27,6 @@ services:
     container_name: baysan_database
     image: postgres
     restart: always
-    ports:
-      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=secretpassword
     volumes:
