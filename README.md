@@ -13,7 +13,9 @@
 
 # Introduction
 
-I created this repo to easily dockerize Django apps. In this repo, I have my own config set-up to seperate prod and dev environments. Also, I have my pre-built `docker-compose.yml` to easily deploy my projects. You can create a Django app inside this directory to use this boilerplate.
+I created this repo to easily dockerize Django apps. In this repo, I have my own config set-up to seperate prod and dev environments. Also, I have my pre-built `docker-compose.yml` to easily deploy my projects. You can create a Django app inside this directory to use this boilerplate. I have also published an article about this repo. You can read the article [here](https://medium.com/codex/a-boilerplate-to-easily-dockerize-and-deploy-django-apps-8c3a459d01e).
+
+![logic](readme/logic.png)
 
 # Makefile
 
