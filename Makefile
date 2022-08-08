@@ -30,10 +30,10 @@ coverage:
 	@coverage xml
 
 docup:
-	@docker-compose up -d --build
+	@docker compose up -d --build
 
 docdown:
-	@docker-compose down -v
+	@docker compose down -v
 
 dumpdata:
 	@python manage.py dumpdata -o dummy.json
