@@ -64,7 +64,7 @@ runserver:
 	@python manage.py runserver 127.0.0.1:8000
 
 run_gunicorn:
-	@gunicorn {{project_name}}.wsgi -b 0.0.0.0:8000
+	@gunicorn {{project_name}}.wsgi:application --bind 0.0.0.0:8000
 
 collect:
 	@python manage.py collectstatic --no-input
@@ -85,4 +85,4 @@ wait:
 runproxyversion:
 	@make collect
 	@make migration
-	@gunicorn {{project_name}}.wsgi:application --bind 0.0.0.0:8000
+	@make run_gunicorn
