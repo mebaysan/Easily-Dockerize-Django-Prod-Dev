@@ -163,3 +163,4 @@ cython_debug/
 # Custom
 .vscode/
 .nginx/
+scripts/postgres_dev/

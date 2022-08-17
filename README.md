@@ -6,10 +6,12 @@
 - [Nginx Dockerfile](#nginx-dockerfile)
 - [Docker Compose](#docker-compose)
 - [Core Django Settings](#core-django-settings)
+- [For Development](#for-development)
 - [For Production](#for-production)
   - [Load Default Superuser](#load-default-superuser)
 - [Default Credentials for Django Admin](#default-credentials-for-django-admin)
 - [Deploy on A Real Server](#deploy-on-a-real-server)
+- [Backup](#backup)
 
 # Introduction
 
@@ -37,6 +39,10 @@ To set-up Nginx, we use [Dockerfile](./nginx/Dockerfile) which is located under 
 # Core Django Settings
 
 I seperate the prod and dev environments. [config_prod.py](./settings/config_prod.py) file is being used for prod environments and [config_prod.py](./settings/config_dev.py) for dev environments. We need to implement the lines in [settings.py](./settings/settings.py) file to use these seperated environments.
+
+# For Development
+
+You can use [dev-postgres.sh](scripts/dev-postgres.sh) to create a development database.
 
 # For Production
 
@@ -87,3 +93,13 @@ Steps:
     ```
         sudo ln -s /etc/nginx/sites-available/baysanproject /etc/nginx/sites-enabled
     ```
+
+
+# Backup
+
+You can use [backuper.sh](scripts/backuper.sh) to backup your database inside Docker container.
+
+You can create a crontab by using the command below.
+```
+sudo crontab -e
+```
