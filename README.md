@@ -12,6 +12,7 @@
 - [Default Credentials for Django Admin](#default-credentials-for-django-admin)
 - [Deploy on A Real Server](#deploy-on-a-real-server)
 - [Backup](#backup)
+- [CI & CD with GitHub Actions](#ci--cd-with-github-actions)
 
 # Introduction
 
@@ -103,3 +104,19 @@ You can create a crontab by using the command below.
 ```
 sudo crontab -e
 ```
+# CI & CD with GitHub Actions
+In [cd.yml](.github/workflows/cd.yml) file, there is a simple continuous delivery workflow is coded. To use it, you have to have your own VPS.
+
+- To activate `self-hosted` mode, you can use the `Settings` tab on your repo. Then, you should go `Actions > General` section. Here, `Allow all actions and reusable workflows` checkbox should be checked.
+- Now, you are able to create your own runner on your VPS. You should go `Actions > Runners` section and create a new Runner.
+- You should install the runner on your VPS by following the commands GitHub showed you.
+- If you get an error like this `Must not be executed as ROOT`, you should deal with it by using the command below on your terminal.
+    ```
+    export RUNNER_ALLOW_RUNASROOT=1
+    ```
+- `run.sh` will start to listen, when you close your terminal or executed job, runner will not listen the further requests.
+- `./svc.sh help` command will help you to understand how to run a consistent runner. You will follow the command like below.
+    ```
+    ./svc.sh install
+    ./svc.sh run
+    ```
