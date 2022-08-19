@@ -12,13 +12,13 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build Updated Docker Compose Environment
-      run: docker-compose up -d --build
+      run: docker-compose build
 
     - name: Stop Old Docker Compose Environment
       run: docker-compose down
 
     - name: Run Updated Docker Compose Environment
-      run: docker-compose up -d --build
+      run: docker-compose up -d
 
     - name: Remove Unused Docker Compose Environment
       run: |
