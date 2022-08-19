@@ -1,4 +1,4 @@
-name: Baysan Continuous Deployment
+name: Baysan Continuous Delivery
 
 on:
   push:
