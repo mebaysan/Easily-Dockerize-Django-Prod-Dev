@@ -40,7 +40,7 @@ services:
     build: ./nginx
     # map the machine port 1339 to the container port 80. Any traffic from 1339 externally will be passed to port 80 of the NGINX container. You can access this container viea localhost:1339
     ports:
-      - "80:80"
+      - "81:80"
     # static storages provisioned since django does not handle static files in production
     volumes:
       - static_volume:/app/static
