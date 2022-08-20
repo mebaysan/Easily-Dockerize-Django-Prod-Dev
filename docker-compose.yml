@@ -22,6 +22,7 @@ services:
       - pg_network
     volumes:
       - static_volume:/app/static
+      - media_volume:/app/media
 
   database:
     container_name: baysan_database
@@ -41,9 +42,10 @@ services:
     # map the machine port 1339 to the container port 80. Any traffic from 1339 externally will be passed to port 80 of the NGINX container. You can access this container viea localhost:1339
     ports:
       - "81:80"
-    # static storages provisioned since django does not handle static files in production
+    # static & media storages provisioned since django does not handle static & media files in production
     volumes:
       - static_volume:/app/static
+      - media_volume:/app/media
 
     # will only start if web is up and running
     depends_on:
@@ -52,6 +54,7 @@ services:
     restart: "on-failure"
     networks:
       - nginx_network
+
 networks:
   nginx_network:
     driver: bridge
@@ -61,3 +64,4 @@ networks:
 volumes:
   database_volume:
   static_volume:
+  media_volume:
