@@ -16,7 +16,10 @@
 
 # Introduction
 
-I created this repo to easily dockerize Django apps. In this repo, I have my own config set-up to seperate prod and dev environments. Also, I have my pre-built `docker-compose.yml` to easily deploy my projects. You can create a Django app inside this directory to use this boilerplate. I have also published an article about this repo. You can read the article [here](https://medium.com/codex/a-boilerplate-to-easily-dockerize-and-deploy-django-apps-8c3a459d01e).
+I created this repo to easily dockerize Django apps. In this repo, I have my own config set-up to seperate prod and dev environments. Also, I have my pre-built `docker-compose.yml` to easily deploy my projects. You can create a Django app inside this directory to use this boilerplate. I have also published two articles about this repo. You can read them by following the links below.
+- [A Boilerplate to Easily Dockerize and Deploy Django Apps](https://medium.com/codex/a-boilerplate-to-easily-dockerize-and-deploy-django-apps-8c3a459d01e)
+- [A Boilerplate to Self-Hosted Continuous Delivery Django Apps (Part-2)](https://medium.com/codex/a-boilerplate-to-self-hosted-continuous-delivery-django-apps-part-2-f358274a0ac3)
+
 
 ![logic](readme/logic.png)
 
