@@ -44,6 +44,8 @@ To set-up Nginx, we use [Dockerfile](./nginx/Dockerfile) which is located under 
 
 I seperate the prod and dev environments. [config_prod.py](./settings/config_prod.py) file is being used for prod environments and [config_prod.py](./settings/config_dev.py) for dev environments. We need to implement the lines in [settings.py](./settings/settings.py) file to use these seperated environments.
 
+**Do not forget to remove `DATABASES` variable in default settings to prevent database duplication!!!**
+
 # For Development
 
 You can use [dev-postgres.sh](scripts/dev-postgres.sh) to create a development database.
@@ -101,7 +103,9 @@ Steps:
 
 # Backup
 
-You can use [backuper.sh](scripts/backuper.sh) to backup your database inside Docker container.
+You can use [backuper-db.sh](scripts/backuper-db.sh) to backup your database inside Docker container.
+
+You can use [backuper-web.sh](scripts/backuper-web.sh) to backup your django data inside Docker container.
 
 You can create a crontab by using the command below.
 ```
