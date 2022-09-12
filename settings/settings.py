@@ -1,4 +1,5 @@
 #  Rest of the settings.py can be changed for projects. For my set-up, I need the lines below.
+# Do not forget to remove default DATABAES variable to prevent database duplication!!!!
 import os
 from pathlib import Path
 
