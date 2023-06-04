@@ -28,3 +28,31 @@ DATABASES = {
 # SESSION_COOKIE_SECURE = True
 
 # CSRF_COOKIE_SECURE = True
+
+
+LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "verbose": {"format": "%(levelname)s %(asctime)s %(name)s %(message)s"},
+        },
+        "handlers": {
+            "console": {"class": "logging.StreamHandler", "formatter": "verbose"},
+            "file": {
+                "level": "DEBUG",
+                "class": "logging.FileHandler",
+                "filename": "/var/log/rmore/debug.log",
+            },
+        },
+        "loggers": {
+            "django_auth_adfs": {
+                "handlers": ["console"],
+                "level": "DEBUG",
+            },
+            "django": {
+                "handlers": ["file"],
+                "level": "DEBUG",
+                "propagate": True,
+            },
+        },
+    }
